@@ -6,7 +6,7 @@ import os
 import time
 
 app = Flask(__name__)
-message_text = "Bot: Online!"
+message_text = "return"
 
 @app.route('/')
 def index():
