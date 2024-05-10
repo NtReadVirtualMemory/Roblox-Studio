@@ -1,4 +1,6 @@
-from flask import Flask, request, jsonify
+import discord
+from discord.ext import commands
+from flask import Flask, jsonify
 from threading import Thread
 
 app = Flask(__name__)
@@ -24,3 +26,15 @@ def run():
 def keep_alive():  
     t = Thread(target=run)
     t.start()
+
+# Discord Bot setup
+bot = commands.Bot(command_prefix='/')  # You can change the prefix if needed
+
+@bot.command()
+async def changesite(ctx, *, new_message):
+    global message_text
+    message_text = new_message
+    await ctx.send('Message updated successfully.')
+
+keep_alive()
+bot.run(os.environ.get("token"))
