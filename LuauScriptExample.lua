@@ -3,6 +3,10 @@ local url = "" -- Your Website
 
 -- THIS IS JUST AND EXAMPLE AND NOT PERFECT IF YOU REALLY CARE THAT MUCH UPDATE AND MAKE IT BETTER YOURSELF.
 
+-- you could also make your own LUA VM to optomize this but it works this way too.
+
+-- if you get error like "loadstring() is not available", go to ServerScriptService and Enable "LoadStringEnabled"
+
 local OLD = ""
 while wait(1) do
 	pcall(function()
