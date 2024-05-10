@@ -27,8 +27,10 @@ def keep_alive():
     t = Thread(target=run)
     t.start()
 
-# Discord Bot setup
-bot = commands.Bot(command_prefix='/')  # You can change the prefix if needed
+intents = discord.Intents.default()
+intents.messages = True 
+intents.message_content = True
+bot = commands.Bot(command_prefix='!', intents=intents)
 
 @bot.command()
 async def changesite(ctx, *, new_message):
