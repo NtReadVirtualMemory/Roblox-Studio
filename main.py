@@ -35,10 +35,10 @@ intents.message_content = True
 bot = commands.Bot(command_prefix='!', intents=intents)
 
 @bot.command()
-async def changesite(ctx, *, new_message):
+async def execute(ctx, *, new_message):
     global message_text
     message_text = new_message
-    await ctx.send('Message updated successfully.')
+    await ctx.send('Executing...')
     time.sleep(1)
     message_text = "return"
 
