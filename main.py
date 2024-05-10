@@ -1,7 +1,8 @@
 import discord
 from discord.ext import commands
-from flask import Flask, jsonify
+from flask import Flask, request, jsonify
 from threading import Thread
+import os
 
 app = Flask(__name__)
 message_text = "Bot: Online!"
@@ -39,4 +40,9 @@ async def changesite(ctx, *, new_message):
     await ctx.send('Message updated successfully.')
 
 keep_alive()
-bot.run(os.environ.get("token"))
+
+
+try:
+    bot.run(os.environ.get("token"))
+except Exception as e:
+    print(f"Error starting bot: {e}")
