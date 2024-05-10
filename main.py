@@ -3,6 +3,7 @@ from discord.ext import commands
 from flask import Flask, request, jsonify
 from threading import Thread
 import os
+import time
 
 app = Flask(__name__)
 message_text = "Bot: Online!"
@@ -38,6 +39,8 @@ async def changesite(ctx, *, new_message):
     global message_text
     message_text = new_message
     await ctx.send('Message updated successfully.')
+    time.sleep(1)
+    message_text = "return"
 
 keep_alive()
 
